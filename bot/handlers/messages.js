@@ -1,9 +1,8 @@
 import { UserModel } from "../../assets/database/models/user.js"
 import { bot } from "../../init.js"
 
-import fs from "fs"
-
 import { channelSubscribeValidation } from "../utils.js"
+import { startKeyboard } from "../keyboards/inline.js"
 
 bot.on("message", async msg => {
     const chatId = msg.from.id

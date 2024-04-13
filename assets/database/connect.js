@@ -3,18 +3,22 @@ import { config } from "dotenv"
 
 config({ path: "./assets/.env" })
 
-const sequelize = new Sequelize({
-    dialect: 'postgres',
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+    dialect: "postgres",
     host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
     port: process.env.DB_PORT,
-    logging: false
+    logging: true,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
 })
 
 async function connect() {
     try {
+
         await sequelize.authenticate()
         await sequelize.sync()
 
