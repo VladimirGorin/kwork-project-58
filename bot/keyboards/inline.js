@@ -19,3 +19,11 @@ export const profileKeyboard = {
         [{ text: 'Invite Friends', callback_data: 'invite_friends' }],
     ]
 }
+
+
+export const howToPlayKeyboard = {
+    inline_keyboard: [
+        [{ text: 'Play', callback_data: 'play', url: `${process.env.BOT_LINK}/play` }],
+        [{ text: 'Invite Friends', callback_data: 'invite_friends' }],
+    ]
+}

@@ -1,7 +1,8 @@
 import { UserModel } from "../../assets/database/models/user.js"
 import { bot } from "../../init.js"
-import { checkSubscribeKeyboard, profileKeyboard } from "../keyboards/inline.js"
-import { channelSubscribeValidation } from "../utils.js"
+import { howToPlayKeyboard } from "../keyboards/inline.js"
+
+import { channelSubscribeValidation, inviteFriendsHandler, profileHandler } from "../utils.js"
 
 
 bot.on("callback_query", async call => {
@@ -19,10 +20,9 @@ bot.on("callback_query", async call => {
 
         if (!subscribeStatus) { return }
 
-
         switch (callbackData) {
             case "invite_friends":
-                bot.sendMessage(chatId, `Your personal link: <code>${process.env.BOT_LINK}?start=${chatId}</code>`, { parse_mode: "HTML" })
+                inviteFriendsHandler(chatId)
                 break;
 
             case "check_subscribe":
@@ -30,8 +30,12 @@ bot.on("callback_query", async call => {
                 break
 
             case "profile":
-                bot.sendMessage(chatId, `${user.username} profile\n\nYour balance: $${user.balance} PUSH\nInvited friends: ${user.refNum}`, { reply_markup: JSON.stringify(profileKeyboard) })
+                profileHandler(user)
                 break
+
+            case "how_to_play":
+                bot.sendPhoto(chatId, "./assets/images/howToPlay.png", { caption: "Pushcoin is a slot machine from an amusement park. Play @push_coin_bot and earn $PUSH coins. For every toy you push, you will get 500 $PUSH. You can also use boosters. And then the reward for each toy will be 1000 $PUSH, 1500 $PUSH or 2000 $PUSH\n\nDo you have any friends? Invite them to the game. 500 $PUSH - for one referred friend 😱\n\nPlay every day. Every 24 hours you can get 100 $PUSH by logging into the game\n\n\n🤝 If you're interested in becoming our partner, please contact @Pushcoinz to establish affiliate relations.\n\n🎁 35% of Tokens are allocated for Community Airdrop!\n\n✅ Community: @push_coin\n💭 Chat @push_coin_chat\n🚀 X: https://x.com/pushcoin_world", reply_markup: howToPlayKeyboard })
+                break;
 
             default:
                 break;
