@@ -26,10 +26,11 @@ export async function setBalance(req, res) {
 
         const user = await chatIdValidation(chatId)
 
-        user.balance = balance
+        user.balance += balance
+        user.gameCoins = balance
         user.save()
 
-        res.status(200).send({"balance": user.balance})
+        res.status(200).send({"gameCoins": user.gameCoins})
 
     } catch (error) {
         res.status(400).send(error.message);

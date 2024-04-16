@@ -10,8 +10,8 @@ const UserModel = sequelize.define("user", {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
-    balance: { type: DataTypes.INTEGER, defaultValue: 300 },
-    refCoins: { type: DataTypes.INTEGER, defaultValue: 0 },
+    balance: { type: DataTypes.INTEGER, defaultValue: 0 },
+    refCoins: { type: DataTypes.INTEGER, defaultValue: 300 },
     refNum: { type: DataTypes.INTEGER, defaultValue: 0 },
     gameCoins: { type: DataTypes.INTEGER, defaultValue: 0 }
 });
