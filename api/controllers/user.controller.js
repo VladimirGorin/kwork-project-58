@@ -7,6 +7,8 @@ export async function getBalance(req, res) {
 
         const user = await chatIdValidation(chatId)
 
+        user.balance = user.refCoins + user.gameCoins
+
         res.status(200).send({"balance": user.balance})
 
     } catch (error) {
@@ -26,11 +28,12 @@ export async function setBalance(req, res) {
 
         const user = await chatIdValidation(chatId)
 
-        user.balance += balance
         user.gameCoins = balance
+        user.balance = user.refCoins + user.gameCoins
+
         user.save()
 
-        res.status(200).send({"gameCoins": user.gameCoins})
+        res.status(200).send({"balance": user.balance})
 
     } catch (error) {
         res.status(400).send(error.message);
