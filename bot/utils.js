@@ -27,5 +27,8 @@ export function inviteFriendsHandler(chatId) {
 }
 
 export function profileHandler(user) {
+  user.balance = user.refCoins + user.gameCoins
+  user.save()
+
   bot.sendMessage(user.chatId, `${user.username} profile\n\nYour balance: ${user.balance} $PUSH\nInvited friends: ${user.refNum}`, { reply_markup: JSON.stringify(profileKeyboard) })
 }

@@ -1,4 +1,3 @@
-import { UserModel } from "../../assets/database/models/user.js";
 import { chatIdValidation } from "../utils.js";
 
 export async function getBalance(req, res) {
@@ -8,6 +7,7 @@ export async function getBalance(req, res) {
         const user = await chatIdValidation(chatId)
 
         user.balance = user.refCoins + user.gameCoins
+        user.save()
 
         res.status(200).send({"balance": user.balance})
 

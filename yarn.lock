@@ -36,6 +36,18 @@
     tunnel-agent "^0.6.0"
     uuid "^8.3.2"
 
+"@tma.js/init-data-node@^1.1.15":
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/@tma.js/init-data-node/-/init-data-node-1.1.15.tgz#fdb65a2fd96c409fcd4b4a2e46734e369fcfcdac"
+  integrity sha512-rjwRQnmxYG+iUohesRWHrvwWVdJHPaZTqHM743RfXICgIoKiLuA7KC4kwQcyaOZoXlUz95LUOyzYpZR4QEljgg==
+  dependencies:
+    "@tma.js/sdk" "^1.5.3"
+
+"@tma.js/sdk@^1.5.3":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@tma.js/sdk/-/sdk-1.5.3.tgz#989b597b73e43ec2a128ea247e86218e0a8ad080"
+  integrity sha512-oXWtFoiiJCzsueOrX7FFQhpljUOLY3BkxNen6J6Ri0r1gZrlu1uFKZVeCpV7KUzsNTLfIK9VQEOcNxI3zuejJA==
+
 "@types/debug@^4.1.8":
   version "4.1.12"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.12.tgz#a155f21690871953410df4b6b6f53187f0500917"
