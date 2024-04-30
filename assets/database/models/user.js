@@ -13,7 +13,10 @@ const UserModel = sequelize.define("user", {
     balance: { type: DataTypes.INTEGER, defaultValue: 0 },
     refCoins: { type: DataTypes.INTEGER, defaultValue: 300 },
     refNum: { type: DataTypes.INTEGER, defaultValue: 0 },
-    gameCoins: { type: DataTypes.INTEGER, defaultValue: 0 }
+    gameCoins: { type: DataTypes.INTEGER, defaultValue: 0 },
+    appStarts: { type: DataTypes.INTEGER, defaultValue: 0 },
+    balanceSets: { type: DataTypes.INTEGER, defaultValue: 0 },
+    booster: { type: DataTypes.INTEGER, defaultValue: 0}
 });
 
 export { UserModel }

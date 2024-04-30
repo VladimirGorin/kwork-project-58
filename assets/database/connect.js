@@ -1,12 +1,20 @@
 import { Sequelize } from "sequelize"
 import { config } from "dotenv"
 
+import databaseConfig from "./config/config.json" with { type: "json" };
+
 config({ path: "./assets/.env" })
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-    dialect: "postgres",
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
+const databaseData = databaseConfig[process.env.MODE]
+
+if (!databaseData){
+    throw Error(`Incorrect database mode (${process.env.MODE})`)
+}
+
+const sequelize = new Sequelize(databaseData.database, databaseData.username, databaseData.password, {
+    dialect: databaseData.dialect,
+    host: databaseData.host,
+    port: databaseData.port,
     logging: false,
     dialectOptions: {
         ssl: {

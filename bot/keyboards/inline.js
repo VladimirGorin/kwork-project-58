@@ -6,7 +6,7 @@ export const checkSubscribeKeyboard = {
 
 export const startKeyboard = {
     inline_keyboard: [
-        [{ text: 'Play', callback_data: 'play', url: `${process.env.BOT_LINK}/play` }],
+        [{ text: 'Play', callback_data: 'play', url: `https://t.me/${process.env.BOT_LINK}/play` }],
         [{ text: 'How to Play', callback_data: 'how_to_play' }],
         [{ text: 'Invite Friends', callback_data: 'invite_friends' }],
         [{ text: 'Profile', callback_data: 'profile' }],
@@ -15,7 +15,7 @@ export const startKeyboard = {
 
 export const profileKeyboard = {
     inline_keyboard: [
-        [{ text: 'Play', callback_data: 'play', url: `${process.env.BOT_LINK}/play` }],
+        [{ text: 'Play', callback_data: 'play', url: `https://t.me/${process.env.BOT_LINK}/play` }],
         [{ text: 'Invite Friends', callback_data: 'invite_friends' }],
     ]
 }
@@ -23,7 +23,7 @@ export const profileKeyboard = {
 
 export const howToPlayKeyboard = {
     inline_keyboard: [
-        [{ text: 'Play', callback_data: 'play', url: `${process.env.BOT_LINK}/play` }],
+        [{ text: 'Play', callback_data: 'play', url: `https://t.me/${process.env.BOT_LINK}/play` }],
         [{ text: 'Invite Friends', callback_data: 'invite_friends' }],
     ]
 }

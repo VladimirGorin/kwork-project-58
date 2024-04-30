@@ -23,7 +23,11 @@ export async function channelSubscribeValidation(userId) {
 }
 
 export function inviteFriendsHandler(chatId) {
-  bot.sendMessage(chatId, `Your personal link: <code>${process.env.BOT_LINK}?start=${chatId}</code>`, { parse_mode: "HTML" })
+  bot.sendMessage(chatId, `Your personal link: <code>https://t.me/${process.env.BOT_LINK}?start=${chatId}</code>`, { parse_mode: "HTML" })
+}
+
+export function claimHandler(chatId) {
+  bot.sendMessage(chatId, `Coming Soon`)
 }
 
 export function profileHandler(user) {
