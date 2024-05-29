@@ -19,4 +19,6 @@ const UserModel = sequelize.define("user", {
     booster: { type: DataTypes.INTEGER, defaultValue: 0}
 });
 
+
+
 export { UserModel }

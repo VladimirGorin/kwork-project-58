@@ -1,8 +1,7 @@
-import { getBalance, setBalance, runFiends, runClaim } from "../controllers/user.controller.js";
-import { app } from "../../init.js";
-import { authMiddleware } from "../middlewares/authorization.js";
+import { getBalance, setBalance, runFiends, runClaim } from "../controllers/user.controller.js"
 
-app.use(authMiddleware);
+import { app } from "../../init.js";
+
 app.post("/user-get-balance", getBalance);
 app.post("/user-set-balance", setBalance);
 app.post("/user-friends", runFiends);

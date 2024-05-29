@@ -13,6 +13,7 @@ app.use(cors());
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 console.log("Bot has success started")
+
 connect()
 
 app.listen(process.env.API_TOKEN, () => {

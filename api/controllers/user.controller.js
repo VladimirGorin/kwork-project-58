@@ -44,7 +44,7 @@ export async function setBalance(req, res) {
 
         user.save()
 
-        res.status(200).send({"balance": user.balance})
+        res.status(200).send({"balance": user.balance, "booster": user.booster})
 
     } catch (error) {
         res.status(400).send(error.message);
