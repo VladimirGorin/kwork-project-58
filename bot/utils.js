@@ -36,3 +36,11 @@ export function profileHandler(user) {
 
   bot.sendMessage(user.chatId, `${user.username} profile\n\nYour balance: ${user.balance} $PUSH\nInvited friends: ${user.refNum}`, { reply_markup: JSON.stringify(profileKeyboard) })
 }
+
+export function setMyCommands() {
+  bot.setMyCommands([
+    { command: "/start", description: "Play Pushcoin" },
+    { command: "/friends", description: "Invite friends to the game" },
+    { command: "/profile", description: "Balance and friends" }
+  ])
+}

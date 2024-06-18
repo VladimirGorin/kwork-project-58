@@ -8,7 +8,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "migrate": "cd assets/database && NODE_ENV=development npx sequelize db:migrate"
+    "migrate": "cd assets/database && NODE_ENV=development npx sequelize db:migrate",
+    "createMigrate": "cd assets/database && NODE_ENV=development npx sequelize-cli migration:generate --name"
+
   },
   "dependencies": {
     "@tma.js/init-data-node": "^1.1.15",

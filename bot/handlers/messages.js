@@ -1,7 +1,8 @@
 import { UserModel } from "../../assets/database/models/user.js"
+
 import { bot } from "../../init.js"
 
-import { channelSubscribeValidation, inviteFriendsHandler, profileHandler } from "../utils.js"
+import { channelSubscribeValidation, inviteFriendsHandler, profileHandler, setMyCommands } from "../utils.js"
 import { startKeyboard } from "../keyboards/inline.js"
 
 bot.on("message", async msg => {
@@ -9,7 +10,7 @@ bot.on("message", async msg => {
     const text = msg.text
     const username = `@${msg.from?.username}` || msg.from.first_name
 
-
+    setMyCommands()
 
     if (text.includes("/start")) {
         const ref = text.replace(/\s/g, "").replace("/start", "")
@@ -57,7 +58,10 @@ bot.on("message", async msg => {
             await UserModel.create({ chatId, username })
         }
 
-        const subscribeStatus = await channelSubscribeValidation(chatId)
+
+        // const subscribeStatus = await channelSubscribeValidation(chatId)
+
+        const subscribeStatus = true
 
         if (!subscribeStatus) { return }
 

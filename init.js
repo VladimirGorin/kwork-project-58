@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json());
 app.use(cors());
 
-const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
+const bot = new TelegramBot(process.env.MODE === "production" ? process.env.BOT_TOKEN : process.env.BOT_TEST_TOKEN, { polling: true });
 console.log("Bot has success started")
 
 connect()
