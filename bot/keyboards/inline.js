@@ -11,7 +11,7 @@ export const startKeyboard = {
                 url: `https://t.me/${process.env.BOT_LINK}/play`,
             },
         ],
-        [{ text: "Missions", web_app: { url: `https://${process.env.MODE === "production" ? `${process.env.SITE_LINK}/missions` : `${process.env.SITE_TEST_LINK}` }` } }],
+        [{ text: "Missions", web_app: { url: `https://${process.env.MODE === "production" ? `${process.env.SITE_LINK}/missions/` : `${process.env.SITE_TEST_LINK}` }` } }],
         [{ text: "How to Play", callback_data: "how_to_play" }],
         [{ text: "Invite Friends", callback_data: "invite_friends" }],
         [{ text: "Profile", callback_data: "profile" }]

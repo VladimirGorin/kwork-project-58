@@ -1,13 +1,20 @@
 import { MissionModel } from "../../assets/database/models/mission.js";
+import { UserModel } from "../../assets/database/models/user.js";
 
 export async function setUserCompletedMission(req, res) {
   try {
-    const { userId, missionId } = req.body;
-    if (userId === undefined || missionId === undefined) {
+    const { userId, missionId, points } = req.body;
+
+    if (userId, missionId, points === undefined) {
       throw Error("Data is incorrect");
     }
 
-    const mission = await MissionModel.findOne({ where: { id: missionId } });
+    const mission = await MissionModel.findOne({ where: { id: Number(missionId) } });
+    const user = await UserModel.findOne({ where: { id: Number(userId) } })
+
+    if (!user) {
+      throw Error("User not found");
+    }
 
     if (!mission) {
       throw Error("Mission not found");
@@ -17,6 +24,9 @@ export async function setUserCompletedMission(req, res) {
 
     mission.completedUsers = completedUsers
 
+    user.refCoins += points
+
+    await user.save()
     await mission.save();
 
     res.status(200).send({ "status": true });
