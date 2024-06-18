@@ -10,7 +10,7 @@ export async function setUserCompletedMission(req, res) {
     }
 
     const mission = await MissionModel.findOne({ where: { id: Number(missionId) } });
-    const user = await UserModel.findOne({ where: { id: Number(userId) } })
+    const user = await UserModel.findOne({ where: { chatId: Number(userId) } })
 
     if (!user) {
       throw Error("User not found");
@@ -24,7 +24,7 @@ export async function setUserCompletedMission(req, res) {
 
     mission.completedUsers = completedUsers
 
-    user.refCoins += points
+    user.refCoins = Number(user.refCoins) + Number(points)
 
     await user.save()
     await mission.save();
