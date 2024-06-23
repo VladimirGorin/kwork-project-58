@@ -1,6 +1,6 @@
 import { UserModel } from "../assets/database/models/user.js";
 import { bot } from "../init.js";
-import { checkSubscribeKeyboard, profileKeyboard } from "./keyboards/inline.js";
+import { checkSubscribeKeyboard, missionsKeyboard, profileKeyboard } from "./keyboards/inline.js";
 
 
 export async function channelSubscribeValidation(userId) {
@@ -28,6 +28,10 @@ export function inviteFriendsHandler(chatId) {
 
 export function claimHandler(chatId) {
   bot.sendMessage(chatId, `Coming Soon`)
+}
+
+export function missionsHandler(chatId) {
+  bot.sendPhoto(chatId, "./assets/images/missions.png", { caption: `Complete simple tasks and get rewards in $Push`, reply_markup: missionsKeyboard })
 }
 
 export function profileHandler(user) {

@@ -2,7 +2,7 @@ import { UserModel } from "../../assets/database/models/user.js"
 
 import { bot } from "../../init.js"
 
-import { channelSubscribeValidation, inviteFriendsHandler, profileHandler, setMyCommands } from "../utils.js"
+import { channelSubscribeValidation, inviteFriendsHandler, missionsHandler, profileHandler, setMyCommands } from "../utils.js"
 import { startKeyboard } from "../keyboards/inline.js"
 
 bot.on("message", async msg => {
@@ -59,9 +59,7 @@ bot.on("message", async msg => {
         }
 
 
-        // const subscribeStatus = await channelSubscribeValidation(chatId)
-
-        const subscribeStatus = true
+        const subscribeStatus = await channelSubscribeValidation(chatId)
 
         if (!subscribeStatus) { return }
 
@@ -78,6 +76,9 @@ bot.on("message", async msg => {
                 profileHandler(user)
                 break;
 
+            case "/missions":
+                missionsHandler(chatId)
+                break;
 
             default:
                 break;

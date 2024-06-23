@@ -2,7 +2,7 @@ import { UserModel } from "../../assets/database/models/user.js"
 import { bot } from "../../init.js"
 import { howToPlayKeyboard } from "../keyboards/inline.js"
 
-import { channelSubscribeValidation, inviteFriendsHandler, profileHandler } from "../utils.js"
+import { channelSubscribeValidation, inviteFriendsHandler, profileHandler, missionsHandler } from "../utils.js"
 
 
 bot.on("callback_query", async call => {
@@ -27,6 +27,10 @@ bot.on("callback_query", async call => {
 
             case "check_subscribe":
                 bot.sendMessage(chatId, "You success subscribed! Enter the /start command to continue")
+                break
+
+            case "missions":
+                missionsHandler(chatId)
                 break
 
             case "profile":
